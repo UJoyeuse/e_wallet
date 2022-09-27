@@ -1,0 +1,222 @@
+{% extends 'pages/base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'register.css' %}" />
+<style>
+  body {
+    background-color: #f1f6f7;
+  }
+  .field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+  }
+  .phone-icon {
+    float: left;
+    margin-left: -18px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+    transform: rotate(30deg);
+    color: grey;
+  }
+
+  .field-icons {
+    float: left;
+    margin-left: -18px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+    transform: rotate(360deg);
+    color: grey;
+  }
+  .another-icon {
+    float: left;
+    margin-left: -18px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+    transform: rotate(360deg);
+    /* color: grey; */
+    
+  }
+  .text-info{
+    color: red;
+  }
+  .cont {
+    background-color: aqua;
+  }
+  
+</style>
+{%endblock %} {% block content%}
+<div class="container" id="form_register">
+  <div class="row centered-form">
+    <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+      
+      <div class="panel panel-default">
+        
+        <div class="panel-heading">
+          <h3 class="panel-title" style="text-align: center">Register here</h3>
+          <br />
+        </div>
+        <div class="panel-body">
+          <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="first_name"
+                    id="first_name"
+                    class="form-control input-sm"
+                    placeholder=" First Name"
+                    style="text-align: center"
+                  /><span class="fa fa-fw fa-user field-icons"></span>
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="last_name"
+                    id="last_name"
+                    class="form-control input-sm"
+                    placeholder=" Last Name"
+                    style="text-align: center"
+                  /><span class="fa fa-fw fa-user another-icon"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-control input-sm"
+                placeholder="Email Address"
+              /><span
+                class="fa fa-fw fa-email field-icon toggle-password"
+              ></span>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="account_no"
+                    id="names"
+                    class="form-control input-sm"
+                    placeholder="Account No"
+                  />
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input
+                    type="phone_number"
+                    name="phone_number"
+                    id="phone_number"
+                    class="form-control input-sm"
+                    maxlength="10"
+                    minlength="10"
+                    placeholder="Enter phone number"
+                    style="text-align: center"
+                  /><span class="fa fa-fw fa-phone phone-icon"></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="gender"
+                id="gender"
+                class="form-control input-sm"
+                placeholder="gender"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="date"
+                name="dob"
+                id="dob"
+                class="form-control input-sm"
+                placeholder="date of birth"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                class="form-control input-sm"
+                placeholder="Your username"
+              />
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password-field"
+                    class="form-control input-sm"
+                    placeholder="Password"
+                  />
+                  <span
+                    toggle="#password-field"
+                    class="fa fa-fw fa-eye field-icon toggle-password"
+                  ></span>
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input
+                    type="password"
+                    name="password2"
+                    id="password-field"
+                    class="form-control input-sm"
+                    placeholder="Password2"
+                  />
+                  <span
+                    toggle="#password-field"
+                    class="fa fa-fw fa-eye field-icon toggle-password"
+                  ></span>
+                </div>
+              </div>
+              
+            </div>
+
+            <input
+              type="submit"
+              value="register"
+              class="btn btn-secondary btn-block"
+            /><br />
+            <div id="register-link" class="text-right">
+              <span style="color: red">Have an account ?</span>
+              <a href="{% url 'login' %}" class="text-info">Login.</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+ 
+</div>
+{% endblock %} {% block scripts %}
+<script>
+  $(".toggle-password").click(function () {
+    $(this).toggleClass("fa-eye fa-eye-slash");
+    var input = $($(this).attr("toggle"));
+    if (input.attr("type") == "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
+    }
+  });
+</script>
+
+{% endblock %}

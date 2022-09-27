@@ -1,0 +1,71 @@
+{% extends '_partials/base.html' %} {% load static %} {% block css %}
+
+<style>
+       *{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.content h1{
+    font-size: 50px;  
+    color: white; 
+}
+.content p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    color: white;
+}
+button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid wheat;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+span{
+    background: wheat;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+button:hover span {
+    width: 100%;
+}
+button:hover{
+    border: none;
+}
+.banner{
+    text-align: center;
+}
+
+</style>
+{% endblock %} {% block content %}
+<div class="banner">
+<div class="content">
+    <h1>E wallet System</h1>
+    <P>We have discovered the quickest and easiest way for you <br/>
+        to send and receive money.<br/>
+         If you're interested in learning more, click the link below</P>
+    
+<div class="btn">
+    <a href="{% url 'login' %}">
+        <button type="button"><spaN></spaN>Learn more<s/button>
+        </a> 
+</div>
+</div>
+</div>
+{% endblock %} 

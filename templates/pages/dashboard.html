@@ -1,0 +1,38 @@
+{% extends 'pages/base.html' %} {% load static %} {% block css %}
+<style>
+  
+</style>
+{% endblock %} {% block content %}
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- LINEARICONS -->
+  <link rel="stylesheet" href="{% static 'record/fonts/linearicons/style.css' %}">
+
+  <!-- STYLE CSS -->
+  <link rel="stylesheet" href="{% static 'record/css/style.css' %}">
+  <script src="{% static 'record/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'record/js/main.js' %}"></script>
+   
+   
+		<div class="wrapper">
+			<div class="inner">			
+				<form method="POST"action=" {% url 'dashboard' %}" class="form">
+					{% csrf_token %}
+					<h3>Send Money</h3>
+					<div class="form-holder">
+						<input type="text" name="account" class="form-control" required placeholder="Account" />
+					</div>
+					<div class="form-holder">
+						<input type="text" name="amount" class="form-control" required placeholder="Amount"/>
+					</div>
+					
+					<button type="submit" class="button">
+						<span>Send </span>
+					</button>
+				</form>
+			</div>
+			
+		</div>
+   
+{% endblock %}

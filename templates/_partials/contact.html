@@ -1,0 +1,108 @@
+{% extends '_partials/base.html' %} {% load static %} {% block css %}
+    <style>
+            *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    width: 100%;
+    height: 100%;
+} 
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding:  20px 100px;
+}
+
+.contact-boc{
+ max-width: 850px;
+ display: grid;
+ grid-template-columns: repeat(2,1fr);
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ background-color: white;
+}
+.left{
+    height: 100%;
+    background-image: url("/staticfiles/images/ewallet.jpg");
+    background-size: cover;
+}  
+.right{
+    padding: 20px 40px;
+
+}
+h2{
+position: relative;
+padding-bottom: 10px;
+margin-bottom: 10px;
+}
+h2:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: yellowgreen;
+}
+.field{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: 2px solid rgda(0,0,0,0);
+    background-color:white;
+    font-size: 1.1rem;
+    margin-bottom: 22px;
+    transition: .3s;
+}
+.field:hover{
+    background-color:rgba(0, 0, 0, 0.1) ;
+}
+.field:focus {
+    background-color: #fff;
+    border: 2px solid rgba(0, 0, 0, 0.8);
+}
+.area {
+    min-height: 150px;
+}
+button{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    background-color: yellowgreen;
+    font-weight: bold;
+    border: 2px solid;
+    color:white;
+    cursor: pointer;
+}
+    </style>
+  {% endblock %} {% block content %}
+
+        <div class="container">
+            <div class="contact-boc">
+                <div class="left"></div>
+                <div class="right">
+                    <h1>Contact Us</h1>
+                    <form action="#">
+                    <input type="text" class="field" placeholder="Your name">
+                    <input type="text" class="field" placeholder="Your Email">
+                    <input type="text" class="field" placeholder="Your Phone">
+                    <textarea class="field" cols="30" rows="5" placeholder="Message"></textarea>
+                    <button type="button">SEND<s/button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endblock %} 
+   

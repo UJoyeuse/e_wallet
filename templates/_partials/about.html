@@ -1,0 +1,54 @@
+{% extends '_partials/base.html' %} {% load static %} {% block css %}   
+      <style>
+               *{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+
+
+.content h1{
+    font-size: 30px; 
+    color: white;  
+}
+.content p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    color: white;
+}
+button{
+    width: 150px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    font-weight: bold;
+    border: 2px solid wheat;
+    background: transparent;
+    color: white;
+    cursor: pointer; 
+      }
+      .banner{
+    text-align: center;
+}
+      </style>  
+      {% endblock %} {% block content %}
+   
+        <div class="banner">
+            <div class="content">
+                <h1>ABOUT US</h1>
+              <P>The system was designed to assist people in sending and
+                <br/> receiving money from anywhere and at any time.
+                     </P>
+           
+            <div>
+                <a href="{% url 'login' %}">
+                    <button type="button"><spaN></spaN>Learn more<s/button>
+                    </a> 
+            </div>
+            </div>
+            </div>
+            {% endblock %}
+   
