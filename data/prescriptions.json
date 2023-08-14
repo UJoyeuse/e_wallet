@@ -1,0 +1,1 @@
+[{"DoctorName": "Peter", "PrescriptionID": "PHA1", "Medications": [{"quantity": 7, "name": "paracetamol", "id": "R8Ibu4fwETzZk5CUWsHwjfSMiVJV9jQMm", "ProcessedStatus": false}, {"quantity": 5, "name": "Asprin", "id": "MED2", "ProcessedStatus": false}], "CustomerID": "ebra", "Date": "2023-07-28"}]
