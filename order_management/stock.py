@@ -1,6 +1,6 @@
 import json
 from typing import List
-from .product import Product
+from product import Product
 
 class Stock:
     """Represents the catalog of products

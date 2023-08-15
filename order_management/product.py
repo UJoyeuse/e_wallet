@@ -1,3 +1,4 @@
+import json
 class Product:
     """Class representing a medication / product in the project.
 
@@ -34,6 +35,23 @@ class Product:
         self.requires_prescription = (requires_prescription != 0)
 
     def to_json(self) -> str:
+       # Convert the object attributes into a dictionary
+        data = {
+            "code": self.code,
+            "name": self.name,
+            "brand": self.brand,
+            "quantity": self.quantity,
+            "category": self.category,
+            "description": self.description,
+            "price": self.price,
+            "dosage_instruction": self.dosage_instruction,
+            "requires_prescription": self.requires_prescription,
+        }
+        
+        return json.dumps(data)
+        
+       
+
         """Returns a valid JSON representation of the object
 
         Arguments:
@@ -41,7 +59,7 @@ class Product:
         Returns: A JSON string.
         """
         #TODO: Implement the function
-        return NotImplemented
+        # return NotImplemented
 
     def __str__(self) -> str:
         return self.name
